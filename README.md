@@ -15,16 +15,17 @@
 ### Решение - 
 - Обновить `"ava"` до версии "^3.11.1" (devDependencies);
 - Поставить пакет `"@ava/babel"` (моя версия "^1.0.1") (devDependencies);
-- В `package.json` в разделе `"scripts"` добавить новую команду `"test-local": "node localtest.js"`. Пример в [файле](https://github.com/SurkinK/ava-test-local/blob/master/package.json);
+- В `package.json` в разделе `"scripts"` добавить новую команду `"test-local": "ava reset-cache && node localtest.js"`. Пример в [файле](https://github.com/SurkinK/ava-test-local/blob/master/package.json);
+- В `package.json` в разделе `"scripts"` сменить --reset-cache на reset-cache
 - Рядом с `package.json` добавить файл `localtest.js` с содержимым согласно [файлу](https://github.com/SurkinK/ava-test-local/blob/master/localtest.js) 
 
 ### Использование - 
 - Перейти в любую папку и запустить `npm run test-local`, при этом запустятся только тесты для данной директории и покажется покрытие только для данной директории
 
 ### Предостережения - 
-- Решение тестировалось на Linux, как поведет себя на винде я не знаю :)
-- При запуске данного скрипта ава не чистит кеш, это можно настроить, однако почему-то при команде `ava --reset-cache` она запускает вообще все тесты.
 - Возможно стоит объединить скрипты `npm test` и `npm run test-local` в один, однако `npm run test-local` не выбивает ошибку в консоли в конце вывода, в случае, если покрытие кода не 100% или зафейлились тесты
+- В третьей аве t.throws получило [другую сигнатуру](https://i.imgur.com/Pp9Vpbx.png) (второй аргумент объект, а не строка), поэтому некоторые тесты из папки wrappers будут фейлиться. 
+[Пример исправления](https://i.imgur.com/Pp9Vpbx.png)
 
 ***
 При наличии любых багов [просьба сообщать](https://t.me/kostyasu5)
