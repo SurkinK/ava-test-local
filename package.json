@@ -29,7 +29,10 @@
         ]
     },
     "scripts": {
-        "test-local": "node localtest.js"
+        "test": "ava reset-cache && nyc ava",
+        "test-local": "ava reset-cache && node localtest.js",
+        "update-snapshots": "ava reset-cache && ava --update-snapshots",
+        "test-development": "ava reset-cache && ava --watch"
     },
     "devDependencies": {
         "@ava/babel": "^1.0.1",
