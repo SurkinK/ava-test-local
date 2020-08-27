@@ -18,6 +18,7 @@
 - В `package.json` в разделе `"scripts"` добавить новую команду `"test-local": "ava reset-cache && node localtest.js"`. Пример в [файле](https://github.com/SurkinK/ava-test-local/blob/master/package.json);
 - В `package.json` в разделе `"scripts"` сменить `--reset-cache` на `reset-cache` у скриптов `test`, `update-snapshots` и `test-development`
 - Рядом с `package.json` добавить файл `localtest.js` с содержимым согласно [файлу](https://github.com/SurkinK/ava-test-local/blob/master/localtest.js) 
+- Убедись, что нода не меньше 12 версии
 
 ### Использование - 
 - Перейти в любую папку и запустить `npm run test-local`, при этом запустятся только тесты для данной директории и покажется покрытие только для данной директории
